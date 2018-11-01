@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
+
+Route::post('/create', 'RestaurantController@create');
+
+Route::get('/restaurant/{id}', 'RestaurantController@view');
