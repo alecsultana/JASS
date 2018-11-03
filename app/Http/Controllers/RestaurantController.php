@@ -10,14 +10,13 @@ use App\classes\Backend;
 class RestaurantController extends Controller
 {
 
-    public function create(Request $request)
-    {
+    public function create(Request $request){
 
       $restaurant = new Restaurant();
-      $_backend = new Backend();
+    //  $_backend = new Backend();
       $restaurant->name = $request->name;
       $restaurant->description = $request->description;
-      $restaurant->slug = $_backend->generateSlug($request->name);
+      $restaurant->slug =Backend::generateSlug($request->name);
 
       $restaurant->save();
 
