@@ -11,6 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
+
+Route::post('/store', 'RestaurantController@store');
+
+Route::post('/update', 'RestaurantController@update');
+
+Route::get('/restaurant/{id}', 'RestaurantController@view');
+
+Route::get('/admin', 'RestaurantController@index');
+
+Route::get('/admin/create', 'RestaurantController@create');
+
+Route::get('/admin/edit/{id}', 'RestaurantController@edit');
+
+//bad practice, just for now
+Route::get('/delete/{id}', 'RestaurantController@delete');
